@@ -1,0 +1,5 @@
+## data_merge is your phyloseq object 
+
+df <- as.data.frame(lapply(sample_data(data_merge),function (y) if(class(y)!="factor" ) as.factor(y) else y),stringsAsFactors=T)
+row.names(df) <- sample_names(data_merge)
+sample_data(data_merge) <- sample_data(df)
